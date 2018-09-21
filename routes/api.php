@@ -31,7 +31,9 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 Route::group(['prefix' => 'sdm'], function () {
     Route::group(['middleware' => ['jwt.verify']], function () {
         Route::get('religion/list', 'Sdm\ReligionController@list');
-        Route::get('religion/detail/{id}', 'Sdm\ReligionController@detail');
+        Route::get('religion/detail/{religion_id}', 'Sdm\ReligionController@detail');
         Route::post('religion/insert', 'Sdm\ReligionController@insert');
+        Route::put('religion/update/{religion_id}', 'Sdm\ReligionController@update');
+        Route::delete('religion/delete/{religion_id}','Sdm\ReligionController@delete');
     });
 });
